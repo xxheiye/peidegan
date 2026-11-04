@@ -60,6 +60,7 @@ const CODES = [
 const UNLOCK_URL = '#';
 
 const STORAGE_KEY = 'pdg_code';
+const USED_KEY = 'pdg_used';
 
 /* ---------- 结果类型 ----------
    verdict: 两行。第一行是铺垫，第二行是刀。

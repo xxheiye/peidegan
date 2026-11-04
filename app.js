@@ -497,6 +497,16 @@
   /* ---------- 授权码 ---------- */
   const norm = s => String(s || '').trim().toUpperCase().replace(/\s+/g, '');
 
+  function readUsed() {
+    try { return JSON.parse(localStorage.getItem(USED_KEY) || '[]') || []; } catch (e) { return []; }
+  }
+  function markUsed(code) {
+    try {
+      const used = readUsed();
+      if (used.indexOf(code) < 0) { used.push(code); localStorage.setItem(USED_KEY, JSON.stringify(used)); }
+    } catch (e) {}
+  }
+
   function hasAccess() {
     try {
       const saved = norm(localStorage.getItem(STORAGE_KEY));
@@ -507,13 +517,20 @@
   $('btnUnlockCode').onclick = () => {
     const v = norm($('codeInput').value);
     if (!v) { $('gateErr').textContent = '请先输入授权码'; return; }
-    if (CODES.map(norm).indexOf(v) >= 0) {
-      try { localStorage.setItem(STORAGE_KEY, v); } catch (e) {}
-      $('gateErr').textContent = '';
-      show('intro');
-    } else {
+
+    if (CODES.map(norm).indexOf(v) < 0) {
       $('gateErr').textContent = '授权码不正确，请检查后重试';
+      return;
     }
+    if (readUsed().indexOf(v) >= 0) {
+      $('gateErr').textContent = '这个授权码已经被使用过了';
+      return;
+    }
+
+    markUsed(v);
+    try { localStorage.setItem(STORAGE_KEY, v); } catch (e) {}
+    $('gateErr').textContent = '';
+    show('intro');
   };
 
   $('codeInput').addEventListener('keydown', e => {
