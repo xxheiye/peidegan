@@ -44,8 +44,6 @@ body::before{
 .code-input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(184,87,63,.10)}
 .code-input::placeholder{letter-spacing:.02em;font-size:15px;color:#B3A79A;text-transform:none}
 .gate-err{min-height:20px;font-size:13px;color:#B04A3C;margin:10px 0 12px;text-align:center}
-.gate-link{display:block;text-align:center;margin-top:20px;font-size:13.5px;color:var(--muted);text-decoration:none}
-.gate-link:hover{color:var(--accent)}
 
 /* ---------- 通用 ---------- */
 .screen{display:none;animation:fade .45s ease both}

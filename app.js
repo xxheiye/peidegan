@@ -504,8 +504,6 @@
     } catch (e) { return false; }
   }
 
-  $('gateLink').href = (typeof UNLOCK_URL === 'string' && UNLOCK_URL !== '#') ? UNLOCK_URL : '#';
-
   $('btnUnlockCode').onclick = () => {
     const v = norm($('codeInput').value);
     if (!v) { $('gateErr').textContent = '请先输入授权码'; return; }
