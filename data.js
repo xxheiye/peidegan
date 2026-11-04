@@ -44,9 +44,16 @@ const OPTIONS = [
    加到这里就能用；区分大小写，建议统一大写。
    注意：这是前端校验，懂技术的人能在源码里看到，只用于「发码变现」而不是防盗版。 */
 const CODES = [
-  'PDG001',
-  'PDG002',
-  'TEST01',
+  '2T8Z7S', '49BQ79', '5XZWP7', '6HJCQH', '79J3WY',
+  '79VU5A', '7JEP34', '8VUDS7', '9BZREQ', '9H4GCP',
+  'BCMNWR', 'BF87QW', 'BFDP2N', 'BTU3QF', 'CDDC42',
+  'D2DWC3', 'DM8C7D', 'DVKDHT', 'DYVM8W', 'EHZKRA',
+  'ETSN47', 'FA254C', 'FH6TBR', 'G4KSZJ', 'GP78VS',
+  'KBBEGZ', 'MK4Q6C', 'MRSDN3', 'N3SVJH', 'NC6SGE',
+  'NKP5A8', 'NN87T4', 'NQ9MH5', 'PPUCG3', 'QP47F9',
+  'R98J49', 'RA29JS', 'RKHS33', 'RKJW99', 'RTYN96',
+  'T46TD8', 'THZTC7', 'TK7XJ7', 'TRQ3VF', 'V7RCNB',
+  'W9UC7X', 'XSXYFV', 'Y3DMZU', 'YCP6C6', 'ZXRRYA',
 ];
 
 /* 用户点「去小红书获取授权码」跳转的地址，换成你的主页或笔记链接 */
