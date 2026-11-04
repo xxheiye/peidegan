@@ -32,6 +32,21 @@ body::before{
 }
 .app{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:24px 22px 48px}
 
+/* ---------- 授权码 ---------- */
+.gate{padding-top:8vh}
+.code-input{
+  width:100%;box-sizing:border-box;
+  padding:18px 20px;font-size:20px;letter-spacing:.2em;text-align:center;
+  font-family:inherit;color:var(--ink);text-transform:uppercase;
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  outline:none;transition:border-color .2s ease,box-shadow .2s ease;
+}
+.code-input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(184,87,63,.10)}
+.code-input::placeholder{letter-spacing:.02em;font-size:15px;color:#B3A79A;text-transform:none}
+.gate-err{min-height:20px;font-size:13px;color:#B04A3C;margin:10px 0 12px;text-align:center}
+.gate-link{display:block;text-align:center;margin-top:20px;font-size:13.5px;color:var(--muted);text-decoration:none}
+.gate-link:hover{color:var(--accent)}
+
 /* ---------- 通用 ---------- */
 .screen{display:none;animation:fade .45s ease both}
 .screen.active{display:block}

@@ -493,5 +493,36 @@
     document.body.style.backgroundColor = '#FFFFFF';
     show('intro');
   };
+
+  /* ---------- 授权码 ---------- */
+  const norm = s => String(s || '').trim().toUpperCase().replace(/\s+/g, '');
+
+  function hasAccess() {
+    try {
+      const saved = norm(localStorage.getItem(STORAGE_KEY));
+      return !!saved && CODES.map(norm).indexOf(saved) >= 0;
+    } catch (e) { return false; }
+  }
+
+  $('gateLink').href = (typeof UNLOCK_URL === 'string' && UNLOCK_URL !== '#') ? UNLOCK_URL : '#';
+
+  $('btnUnlockCode').onclick = () => {
+    const v = norm($('codeInput').value);
+    if (!v) { $('gateErr').textContent = '请先输入授权码'; return; }
+    if (CODES.map(norm).indexOf(v) >= 0) {
+      try { localStorage.setItem(STORAGE_KEY, v); } catch (e) {}
+      $('gateErr').textContent = '';
+      show('intro');
+    } else {
+      $('gateErr').textContent = '授权码不正确，请检查后重试';
+    }
+  };
+
+  $('codeInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') $('btnUnlockCode').click();
+  });
+
+  // 首屏：有授权记录直接进封面，否则停在输码页
+  show(hasAccess() ? 'intro' : 'gate');
 })();
 
